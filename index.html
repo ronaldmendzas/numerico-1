@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resolver Sistemas por LU</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Descomposicion LU</h1>
+      <p>Resuelve sistemas lineales Ax = b con Doolittle, Crout o Cholesky.</p>
+    </header>
+
+    <section class="panel controls">
+      <div class="field-group">
+        <label for="sizeInput">Tamano de la matriz</label>
+        <input id="sizeInput" type="number" min="1" max="6" value="3" />
+      </div>
+
+      <div class="field-group">
+        <label for="methodSelect">Metodo</label>
+        <select id="methodSelect">
+          <option value="doolittle">Doolittle (diag(L) = 1)</option>
+          <option value="crout">Crout (diag(U) = 1)</option>
+          <option value="cholesky">Cholesky (A simetrica definida positiva)</option>
+        </select>
+      </div>
+
+      <button id="generateBtn" type="button">Generar Matriz</button>
+      <button id="solveBtn" type="button" class="primary">Resolver</button>
+    </section>
+
+    <section class="panel matrix-inputs">
+      <h2>Entradas</h2>
+      <div id="matrixContainer"></div>
+    </section>
+
+    <section class="panel results">
+      <h2>Resultados</h2>
+      <p id="errorBox" class="error" aria-live="polite"></p>
+
+      <div class="result-grid">
+        <article>
+          <h3>Matriz L</h3>
+          <div id="lOutput" class="table-wrap"></div>
+        </article>
+        <article>
+          <h3>Matriz U</h3>
+          <div id="uOutput" class="table-wrap"></div>
+        </article>
+      </div>
+
+      <article>
+        <h3>Solucion x</h3>
+        <div id="xOutput" class="table-wrap"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
